@@ -43,10 +43,6 @@ $data = mysqli_fetch_array($edit);
                         <form action="update.php" method="POST">
                             <!-- jika tdk ada uniq di database -->
                             <input type="hidden" name="id_kategori" value="<?= $data['id_kategori'] ?>">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label"> ID Kategori </label>
-                                <input type="text" value="<?= $data['id_kategori'] ?>" name="id_kategori" class="form-control" id="">
-                            </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Nama Kategori</label>

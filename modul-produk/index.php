@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>data dosen </title>
+    <title>data produk </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/all.css">
 </head>
@@ -31,16 +31,17 @@
                                     <th scope="col">Nama Produk</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Kategori</th>
-                                    <th scope="col">Gambar</th>
+                                    <th scope="col">Gambar Produk</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 include("../koneksi.php");
 
-                                $tampil = "SELECT *, produks.kategori_id as nm_kat FROM produks INNER JOIN kategoris ON produks.kategori_id=kategoris.id_kategori";
+                                $tampil = "SELECT *, produks.kategori_id as nm_kat
+                                FROM produks
+                                INNER JOIN kategoris ON produks.kategori_id=kategori.id_kategori";
 
                                 $proses = mysqli_query($koneksi, $tampil);
 
@@ -55,15 +56,54 @@
                                         <td> <?= $data['nm_kat'] ?> </td>
                                         <td> <?= $data['gambar_produk'] ?> </td>
                                         <td>
+                                            <!-- TOMBOL DETAIL -->
+                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detail<?= $data['nama_produk'] ?>">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+
+                                            <!-- MODAL DETAIL-->
+                                            <div class="modal fade" id="detail<?= $data['nama_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data <?= $data['harga'] ?> </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="200" src="foto/<?= $data['gambar_produk'] ?>" alt="">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <td scope="col">Nama Produk</td>
+                                                                    <th scope="col">: <?= $data['nama_produk'] ?></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="col">Harga</td>
+                                                                    <th scope="col">: <?= $data['harga'] ?></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="col">Kategori</td>
+                                                                    <th scope="col">: <?= $data['kategori'] ?></th>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- TOMBOL EDIT -->
                                             <a class="btn btn-info btn-sm" href="edit.php?id=<?= $data['id_produk'] ?>"> <i class="fa-solid fa-pen-to-square"></i> </a>
 
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['id_produk'] ?>">
+                                            <!-- TOMBOL HAPUS -->
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['nama_produk'] ?>">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="hapus<?= $data['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <!-- MODAL HAPUS -->
+                                            <div class="modal fade" id="hapus<?= $data['nama_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -75,7 +115,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="hapus.php?xyz=<?= $data['id_produk'] ?>" class="btn btn-danger">Hapus</a>
+                                                            <a href="hapus.php?xyz=<?= $data['nama_produk'] ?>" class="btn btn-danger">Hapus</a>
 
                                                         </div>
                                                     </div>

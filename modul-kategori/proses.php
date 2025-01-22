@@ -2,10 +2,9 @@
 
 include("../koneksi.php");
 
-$id_kategori = $_POST['id_kategori'];
 $nama_kategori = $_POST['nama_kategori'];
 
-$simpan = "INSERT INTO kategoris (id_kategori,nama_kategori) VALUES ('$id_kategori','$nama_kategori')";
+$simpan = "INSERT INTO kategoris (nama_kategori) VALUES ('$nama_kategori')";
 
 $proses = mysqli_query($koneksi, $simpan);
 
@@ -45,10 +44,6 @@ $proses = mysqli_query($koneksi, $simpan);
               <table class="table">
 
                 <tbody>
-                  <tr>
-                    <td scope="row"> ID Kategori</td>
-                    <th>: <?= $id_kategori ?> </th>
-                  </tr>
                   <tr>
                     <td scope="row"> Nama Kategori</td>
                     <th>: <?= $nama_kategori ?> </th>

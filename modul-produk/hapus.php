@@ -4,7 +4,7 @@ include("../koneksi.php");
 
 $id = $_GET['xyz'];
 
-$hapus = "DELETE FROM produks WHERE id='$id' ";
+$hapus = "DELETE FROM mahasiswas WHERE nim='$id' ";
 
 $proses = mysqli_query($koneksi, $hapus);
 

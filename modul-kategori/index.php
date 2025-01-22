@@ -28,7 +28,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">ID Kategori</th>
                                     <th scope="col">Nama Kategori</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -47,7 +46,6 @@
 
                                     <tr>
                                         <th scope="row"> <?= $nomor++ ?> </th>
-                                        <td> <?= $data['id_kategori'] ?> </td>
                                         <td> <?= $data['nama_kategori'] ?> </td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="edit.php?id=<?= $data['id_kategori'] ?>"> <i class="fa-solid fa-pen-to-square"></i> </a>

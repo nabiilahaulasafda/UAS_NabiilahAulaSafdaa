@@ -40,7 +40,7 @@
                                 <?php
                                 include("../koneksi.php");
 
-                                $tampil = "SELECT *, kategoris.id_kategori FROM produks INNER JOIN kategoris ON produks.kategori_id=kategoris.id";
+                                $tampil = "SELECT *, produks.kategori_id as nm_kat FROM produks INNER JOIN kategoris ON produks.kategori_id=kategoris.id_kategori";
 
                                 $proses = mysqli_query($koneksi, $tampil);
 
@@ -52,18 +52,18 @@
                                         <th scope="row"> <?= $nomor++ ?> </th>
                                         <td> <?= $data['nama_produk'] ?> </td>
                                         <td> <?= $data['harga'] ?> </td>
-                                        <td> <?= $data['kategori_id'] ?> </td>
+                                        <td> <?= $data['nm_kat'] ?> </td>
                                         <td> <?= $data['gambar_produk'] ?> </td>
                                         <td>
-                                            <a class="btn btn-info btn-sm" href="edit.php?id=<?= $data['id'] ?>"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                                            <a class="btn btn-info btn-sm" href="edit.php?id=<?= $data['id_produk'] ?>"> <i class="fa-solid fa-pen-to-square"></i> </a>
 
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['id'] ?>">
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['id_produk'] ?>">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="hapus<?= $data['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="hapus<?= $data['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -75,7 +75,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="hapus.php?xyz=<?= $data['id'] ?>" class="btn btn-danger">Hapus</a>
+                                                            <a href="hapus.php?xyz=<?= $data['id_produk'] ?>" class="btn btn-danger">Hapus</a>
 
                                                         </div>
                                                     </div>

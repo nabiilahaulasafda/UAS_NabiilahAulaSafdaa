@@ -1,0 +1,21 @@
+<?php
+
+include("../koneksi.php");
+
+$nama_produk = $_POST['nama_produk'];
+$harga = $_POST['harga'];
+$kategori_id = $_POST['kategori_id'];
+$gambar_produk = $_POST['gambar_produk'];
+
+$simpan = "INSERT INTO produks (nama_produk,harga,kategori_id,gambar_produk) VALUES 
+('$nama_produk','$harga','$kategori_id','$gambar_produk')";
+
+$proses = mysqli_query($koneksi, $simpan);
+
+// untuk mengalihkan halaman diphp
+// header("location:index.php");
+?>
+
+<script>
+    document.location = "index.php";
+</script>

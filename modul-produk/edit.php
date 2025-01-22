@@ -6,7 +6,7 @@ include("../koneksi.php");
 $id_produk = $_GET['id_produk'];
 
 // 3. mengambil semua record data berdasarkan id yang dipilih
-$ambil = "SELECT * FROM produk WHERE id_produk='$id_produk'";
+$ambil = "SELECT * FROM produks WHERE id_produk='$id_produk'";
 
 // 4. menjalankan query 
 $edit = mysqli_query($koneksi, $ambil);

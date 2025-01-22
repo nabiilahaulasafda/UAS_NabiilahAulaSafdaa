@@ -66,7 +66,7 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data <?= $data['harga'] ?> </h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data <?= $data['nama_produk'] ?> </h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -82,7 +82,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td scope="col">Kategori</td>
-                                                                    <th scope="col">: <?= $data['kategori'] ?></th>
+                                                                    <th scope="col">: <?= $data['nm_kat'] ?></th>
                                                                 </tr>
                                                             </table>
                                                         </div>

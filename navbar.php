@@ -9,6 +9,8 @@
         <a class="nav-link active" aria-current="page" href="#">Beranda</a>
         <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/modul-produk/index.php">Data Produk</a>
         <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/modul-kategori/index.php">Kategori Produk</a>
+        <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/ubah-password.php">Ubah Password</a>
+        <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/logout.php">Log Out</a>
       </div>
     </div>
   </div>

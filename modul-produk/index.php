@@ -41,7 +41,7 @@
 
                                 $tampil = "SELECT *, produks.kategori_id as nm_kat
                                 FROM produks
-                                INNER JOIN kategoris ON produks.kategori_id=kategori.id_kategori";
+                                INNER JOIN kategoris ON produks.kategori_id=kategoris.id_kategori";
 
                                 $proses = mysqli_query($koneksi, $tampil);
 

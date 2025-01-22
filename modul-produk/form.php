@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>data mahasiswa </title>
+    <title>data produk </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/all.css">
 </head>
@@ -17,77 +17,39 @@
             <div class="col-8 m-auto">
                 <div class="card">
                     <div class="card-header bg-dark-subtle">
-                        <h3 class="float-start"> Form Data mahasiswa </h3>
+                        <h3 class="float-start"> Form Data Produk </h3>
                     </div>
 
                     <div class="card-body">
                         <form action="proses.php" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label"> NIM </label>
-                                <input type="text" name="nim" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Nama Mahasiswa</label>
-                                <input type="text" name="nama" class="form-control" id="exampleInputPassword1">
+                                <label for="exampleInputPassword1" class="form-label"> Nama Produk</label>
+                                <input type="text" name="nama_produk" class="form-control" id="exampleInputPassword1">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Tempat Lahir</label>
-                                <input type="text" name="tempat" class="form-control" id="exampleInputPassword1">
+                                <label for="exampleInputPassword1" class="form-label"> Harga</label>
+                                <input type="number" name="harga" class="form-control" id="exampleInputPassword1">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Tanggal Lahir</label>
-                                <input type="date" name="tgl" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Alamat </label>
-                                <input type="text" name="alamat" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Email </label>
-                                <input type="email" name="email" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Jenis Kelamin </label>
-                                <br>
-                                <input type="radio" name="jk" value="Laki-Laki" id="exampleInputPassword1"> Laki-Laki
-                                <input type="radio" name="jk" value="Perempuan" id="exampleInputPassword1"> Perempuan
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Jurusan </label>
-                                <select name="jur" class="form-control" id="">
-                                    <option value="">-Pilih Jurusan-</option>
+                                <label for="exampleInputPassword1" class="form-label"> Kategori </label>
+                                <select name="kategori" class="form-control" id="">
+                                    <option value="">-Pilih Kategori-</option>
                                     <?php
                                     include('../koneksi.php');
-                                    $sql_jur = "SELECT * FROM jurusans";
-                                    $qry_jur = mysqli_query($koneksi, $sql_jur);
-                                    foreach ($qry_jur as $data_jur) {
+                                    $sql_kategori = "SELECT * FROM kategoris";
+                                    $qry_kategori = mysqli_query($koneksi, $sql_kategori);
+                                    foreach ($qry_kategori as $data_kategori) {
                                     ?>
-                                        <option value="<?= $data_jur['id'] ?>"> <?= $data_jur['jurusan'] ?> </option>
+                                        <option value="<?= $data_kategori['id_kategori'] ?>"> <?= $data_kategori['nama_kategori'] ?> </option>
                                     <?php
                                     }
                                     ?>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Dosen Wali </label>
-                                <select name="dos" class="form-control" id="">
-                                    <option value="">-Pilih Dosen Wali-</option>
-                                    <?php
-                                    include('../koneksi.php');
-                                    $sql_dos = "SELECT * FROM dosens WHERE jabatan='Full Time'";
-                                    $qry_dos = mysqli_query($koneksi, $sql_dos);
-                                    foreach ($qry_dos as $data_dos) {
-                                    ?>
-                                        <option value="<?= $data_dos['id'] ?>"><?= $data_dos['nama'] ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label"> Foto </label>
-                                <input type="file" accept="image/*" name="foto" class="form-control" id="exampleInputPassword1">
+                                <label for="exampleInputPassword1" class="form-label"> Gambar Produk </label>
+                                <input type="file" accept="image/*" name="gambar_produk" class="form-control" id="exampleInputPassword1">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>

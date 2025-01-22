@@ -2,15 +2,14 @@
 
 include("../koneksi.php");
 
-$id = $_POST['id'];
-$nidn = $_POST['nidn'];
-$nama = $_POST['nama'];
-$jabatan = $_POST['jabatan'];
-$email = $_POST['email'];
-$hp = $_POST['hp'];
+$id_produk = $_POST['id_produk'];
+$nama_produk = $_POST['nama_produk'];
+$harga = $_POST['harga'];
+$kategori_id = $_POST['kategori_id'];
+$gambar_produk = $_POST['gambar_produk'];
 
-$sunting = "UPDATE dosens SET nidn='$nidn', nama='$nama', jabatan='$jabatan',
-email='$email', hp='$hp' WHERE id='$id'";
+$sunting = "UPDATE produks SET nama_poduk='$nama_produk', harga='$harga',
+kategori_id='$kategori_id', gambar_produk='$gambar_produk' WHERE id_produk='$id_produk'";
 
 $proses = mysqli_query($koneksi, $sunting);
 // untuk mengalihkan halaman diphp

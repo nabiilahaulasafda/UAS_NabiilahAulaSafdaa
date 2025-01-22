@@ -8,7 +8,7 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Beranda</a>
         <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/modul-produk/index.php">Data Produk</a>
-        <a class="nav-link active" aria-current="page" href="#">Kategori Produk</a>
+        <a class="nav-link active" aria-current="page" href="/UAS_NabiilahAulaSafda/modul-kategori/index.php">Kategori Produk</a>
       </div>
     </div>
   </div>

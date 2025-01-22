@@ -41,7 +41,7 @@
                                     $qry_kat = mysqli_query($koneksi, $sql_kat);
                                     foreach ($qry_kat as $data_kat) {
                                     ?>
-                                        <option value="<?= $data_kat['id'] ?>"><?= $data_kat['id_kategori'] ?></option>
+                                        <option value="<?= $data_kat['id_kategori'] ?>"><?= $data_kat['id_kategori'] ?></option>
 
                                     <?php
                                     }

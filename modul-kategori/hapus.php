@@ -2,9 +2,9 @@
 
 include("../koneksi.php");
 
-$id_kategori = $_GET['xyz'];
+$id = $_GET['xyz'];
 
-$hapus = "DELETE FROM kategoris WHERE id_kategori='$id_kategori' ";
+$hapus = "DELETE FROM kategoris WHERE id_kategori='$id' ";
 
 $proses = mysqli_query($koneksi, $hapus);
 

@@ -33,7 +33,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Kategori </label>
-                                <select name="kategori" class="form-control" id="">
+                                <select name="kategori_id" class="form-control" id="">
                                     <option value="">-Pilih Kategori-</option>
                                     <?php
                                     include('../koneksi.php');
@@ -41,7 +41,7 @@
                                     $qry_kategori = mysqli_query($koneksi, $sql_kategori);
                                     foreach ($qry_kategori as $data_kategori) {
                                     ?>
-                                        <option value="<?= $data_kategori['id_kategori'] ?>"> <?= $data_kategori['nama_kategori'] ?> </option>
+                                        <option value="<?= $data_kategori['id_kategori'] ?>"> <?= $data_kategori['id_kategori'] ?> </option>
                                     <?php
                                     }
                                     ?>

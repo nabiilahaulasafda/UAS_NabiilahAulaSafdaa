@@ -3,10 +3,10 @@
 include("../koneksi.php");
 
 // 2. ambil id yang akan disunting
-$id_kategori = $_GET['id_kategori'];
+$id = $_GET['id'];
 
 // 3. mengambil semua record data berdasarkan id yang dipilih
-$ambil = "SELECT * FROM kategoris WHERE id_kategori='$id_kategori'";
+$ambil = "SELECT * FROM kategoris WHERE id_kategori='$id'";
 
 // 4. menjalankan query 
 $edit = mysqli_query($koneksi, $ambil);
@@ -44,6 +44,10 @@ $data = mysqli_fetch_array($edit);
                             <!-- jika tdk ada uniq di database -->
                             <input type="hidden" name="id_kategori" value="<?= $data['id_kategori'] ?>">
 
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label"> ID Kategori</label>
+                                <input type="text" readonly value="<?= $data['id_kategori'] ?>" name="id_kategori" class="form-control" id="">
+                            </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Nama Kategori</label>
                                 <input type="text" value="<?= $data['nama_kategori'] ?>" name="nama_kategori" class="form-control" id="">

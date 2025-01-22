@@ -4,7 +4,7 @@ include("../koneksi.php");
 
 $id_produk = $_GET['xyz'];
 
-$hapus = "DELETE FROM kategoris WHERE nama_produk='$id_produk' ";
+$hapus = "DELETE FROM produks WHERE id_produk='$id_produk' ";
 
 $proses = mysqli_query($koneksi, $hapus);
 

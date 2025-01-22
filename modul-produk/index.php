@@ -31,7 +31,6 @@
                                     <th scope="col">Nama Produk</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Kategori</th>
-                                    <th scope="col">Gambar Produk</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -43,10 +42,10 @@
                                 FROM produks
                                 INNER JOIN kategoris ON produks.kategori_id=kategoris.id_kategori";
 
-                                $proses = mysqli_query($koneksi, $tampil);
+                                $proses1 = mysqli_query($koneksi, $tampil);
 
                                 $nomor = 1;
-                                foreach ($proses as $data) {
+                                foreach ($proses1 as $data) {
                                 ?>
 
                                     <tr>
@@ -54,15 +53,14 @@
                                         <td> <?= $data['nama_produk'] ?> </td>
                                         <td> <?= $data['harga'] ?> </td>
                                         <td> <?= $data['nm_kat'] ?> </td>
-                                        <td> <?= $data['gambar_produk'] ?> </td>
                                         <td>
                                             <!-- TOMBOL DETAIL -->
-                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detail<?= $data['nama_produk'] ?>">
+                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detail<?= $data['id_produk'] ?>">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
 
                                             <!-- MODAL DETAIL-->
-                                            <div class="modal fade" id="detail<?= $data['nama_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="detail<?= $data['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -82,7 +80,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td scope="col">Kategori</td>
-                                                                    <th scope="col">: <?= $data['nm_kat'] ?></th>
+                                                                    <th scope="col">: <?= $data['kategori_id'] ?></th>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -98,12 +96,12 @@
                                             <a class="btn btn-info btn-sm" href="edit.php?id=<?= $data['id_produk'] ?>"> <i class="fa-solid fa-pen-to-square"></i> </a>
 
                                             <!-- TOMBOL HAPUS -->
-                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['nama_produk'] ?>">
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $data['id_produk'] ?>">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
 
                                             <!-- MODAL HAPUS -->
-                                            <div class="modal fade" id="hapus<?= $data['nama_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="hapus<?= $data['id_produk'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -115,7 +113,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="hapus.php?xyz=<?= $data['nama_produk'] ?>" class="btn btn-danger">Hapus</a>
+                                                            <a href="hapus.php?xyz=<?= $data['id_produk'] ?>" class="btn btn-danger">Hapus</a>
 
                                                         </div>
                                                     </div>

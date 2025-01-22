@@ -3,10 +3,10 @@
 include("../koneksi.php");
 
 // 2. ambil id yang akan disunting
-$id_produk = $_GET['id_produk'];
+$id = $_GET['id'];
 
 // 3. mengambil semua record data berdasarkan id yang dipilih
-$ambil = "SELECT * FROM produks WHERE id_produk='$id_produk'";
+$ambil = "SELECT * FROM produks WHERE id_produk='$id'";
 
 // 4. menjalankan query 
 $edit = mysqli_query($koneksi, $ambil);
@@ -42,7 +42,7 @@ $data = mysqli_fetch_array($edit);
                     <div class="card-body">
                         <form action="update.php" method="POST">
                             <!-- jika tdk ada uniq di database -->
-                            <input type="hidden" name="id" value="<?= $data['id_produk'] ?>">
+                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Nama Produk </label>
@@ -55,14 +55,13 @@ $data = mysqli_fetch_array($edit);
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Kategori </label>
                                 <select name="kategori_id" class="form-control" id="">
-                                    <option value="">-Pilih Jabatan-</option>
-                                    <option <?php echo ($data['kategori_id'] == "Full Time") ? 'selected' : '' ?> value="Full Time">Full Time</option>
-                                    <option <?php echo ($data['kategori_id'] == "Part Time") ? 'selected' : '' ?> value="Part Time">Part Time</option>
+                                    <option value="">-Pilih Kategori-</option>
+                                    <option value="<?= $data_kategori['nama_kategori'] ?>"> <?= $data_kategori['nama_kategori'] ?> </option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label"> Gambar Produk </label>
-                                <input type="text" value="<?= $data['gambar_produk'] ?>" name="gambar_produk" class="form-control" id="exampleInputPassword1">
+                                <input type="file" value="<?= $data['gambar_produk'] ?>" name="gambar_produk" class="form-control" id="exampleInputPassword1">
                             </div>
                             <button type="submit" class="btn btn-primary">update</button>
                         </form>
